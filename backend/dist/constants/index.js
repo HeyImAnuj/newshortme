@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ADMIN_KEY = exports.JWT_SECRET = exports.URI_LENGTH = exports.PORT = void 0;
+const PORT = process.env.PORT || 5000;
+exports.PORT = PORT;
+const URI_LENGTH = 5;
+exports.URI_LENGTH = URI_LENGTH;
+const JWT_SECRET = 'super_secret';
+exports.JWT_SECRET = JWT_SECRET;
+const ADMIN_KEY = 'ultra_secret';
+exports.ADMIN_KEY = ADMIN_KEY;

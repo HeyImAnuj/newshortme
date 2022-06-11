@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const register_1 = __importDefault(require("./register"));
+const login_1 = __importDefault(require("./login"));
+const public_1 = __importDefault(require("./public"));
+const private_1 = require("./private");
+const auth_1 = __importDefault(require("../middlewares/auth"));
+const admin_1 = __importDefault(require("../middlewares/admin"));
+const router = (0, express_1.Router)();
+router.post('/register', register_1.default);
+router.post('/login', login_1.default);
+router.post('/shorten', auth_1.default, private_1.Shorten);
+router.get('/info', auth_1.default, private_1.Info);
+router.get('/admin', auth_1.default, admin_1.default, private_1.Admin);
+router.get('/:key', public_1.default);
+exports.default = router;
